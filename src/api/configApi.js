@@ -2,7 +2,7 @@ import axios from "axios";
 
 /** Setup an API instance */
 const instanceApi = axios.create({
-    baseURL: "http://localhost:80/cosmetics",
+    baseURL: "http://localhost:3001/api",
     headers: {
         "Content-Type": "application/json",
     },
