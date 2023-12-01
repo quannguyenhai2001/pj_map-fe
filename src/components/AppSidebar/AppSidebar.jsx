@@ -34,7 +34,7 @@ import "./AppSidebar.styles.scss";
 import { useStyles, StyledBadge } from "./AppSidebar.styles";
 import { hasChildren } from "./helpers/AppSidebar.helpers";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteUser } from "redux/slices/UserSlice";
+// import { deleteUser } from "redux/slices/UserSlice";
 
 const MultiLevel = ({ item, isSidebarExpanded, isChildItem = false }) => {
     const classes = useStyles();
@@ -182,7 +182,6 @@ const AppSidebar = () => {
     const location = useLocation();
     const userInfo = useSelector(state => state.user.userInfo);
 
-
     const handleCollapseSideBar = () => {
         setIsExpand(!isExpand);
     };
@@ -192,7 +191,7 @@ const AppSidebar = () => {
         setOpenCancelModal(false);
     };
     const handleConfirmCancel = async () => {
-        await dispatch(deleteUser())
+        // await dispatch(deleteUser())
         localStorage.removeItem('access_token');
 
         navigate('/');
@@ -230,8 +229,8 @@ const AppSidebar = () => {
                         <Avatar
                             className={`${classes.wrapAvatar} ${isExpand ? "avatar-expanded" : "avatar-collapsed"
                                 }`}
-                            alt={userInfo.display_name}
-                            src={userInfo.avatar}
+                        // alt={userInfo.display_name}
+                        // src={userInfo.avatar}
                         />
                     </StyledBadge>
                 </Box>
@@ -243,7 +242,7 @@ const AppSidebar = () => {
                     className={`${classes.typoUsername} ${isExpand && "username-expanded"
                         }`}
                 >
-                    {userInfo.display_name}
+                    {userInfo.email}
                 </Typography>
             </Box>
             <Box flexGrow={1} className="wrap-menu-items">

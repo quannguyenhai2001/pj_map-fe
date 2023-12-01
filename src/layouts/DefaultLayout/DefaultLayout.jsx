@@ -9,7 +9,6 @@ import "./DefaultLayout.styles.scss";
 const DefaultLayout = ({ children }) => {
     return (
         <Box>
-
             {children}
         </Box>
     );

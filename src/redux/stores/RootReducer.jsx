@@ -1,9 +1,9 @@
-import billReducer from "redux/slices/BillSlice";
+import userReducer from "redux/slices/UserSlice";
 
 
 const { configureStore } = require("@reduxjs/toolkit");
 const rootReducer = {
-    bills: billReducer
+    user: userReducer
 
 }
 const store = configureStore({
