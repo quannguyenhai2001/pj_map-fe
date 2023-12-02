@@ -1,23 +1,13 @@
-import { Typography, Box } from "@mui/material";
+import { Box } from "@mui/material";
+import "./Header.styles.scss"
 
-
-const Header = ({ title, subtitle }) => {
+const Header = ({ param }) => {
 
     return (
-        <Box mb="30px">
-            <Typography
-                variant="h4"
-
-                fontWeight="bold"
-                sx={{ m: "0 0 5px 0" }}
-            >
-                {title}
-            </Typography>
-            <Typography variant="h5" >
-                {subtitle}
-            </Typography>
+        <Box mb="10px">
+            <Box>
+                {param}
+            </Box> 
         </Box>
     );
 };
-
-export default Header;
