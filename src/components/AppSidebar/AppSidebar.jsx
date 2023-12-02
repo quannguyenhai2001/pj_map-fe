@@ -34,6 +34,7 @@ import "./AppSidebar.styles.scss";
 import { useStyles, StyledBadge } from "./AppSidebar.styles";
 import { hasChildren } from "./helpers/AppSidebar.helpers";
 import { useDispatch, useSelector } from "react-redux";
+import { deleteUser } from "redux/slices/UserSlice";
 // import { deleteUser } from "redux/slices/UserSlice";
 
 const MultiLevel = ({ item, isSidebarExpanded, isChildItem = false }) => {
@@ -175,7 +176,6 @@ const LightTooltip = styled(({ className, ...props }) => (
 const AppSidebar = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
-
     const [isExpand, setIsExpand] = useState(true);
     const navigate = useNavigate();
 
@@ -191,10 +191,10 @@ const AppSidebar = () => {
         setOpenCancelModal(false);
     };
     const handleConfirmCancel = async () => {
-        // await dispatch(deleteUser())
+        await dispatch(deleteUser())
         localStorage.removeItem('access_token');
 
-        navigate('/');
+        navigate('/sign-in');
     };
     return (
         <Box
@@ -242,7 +242,7 @@ const AppSidebar = () => {
                     className={`${classes.typoUsername} ${isExpand && "username-expanded"
                         }`}
                 >
-                    {userInfo.email}
+                    {userInfo.username}
                 </Typography>
             </Box>
             <Box flexGrow={1} className="wrap-menu-items">

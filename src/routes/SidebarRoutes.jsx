@@ -10,7 +10,7 @@ export const sidebarMenuItems = [
     {
         icon: <AccountCircleIcon />,
         title: "Quản lý người dùng",
-        to: "/dashboard/users",
+        to: "/dashboard",
     },
 
     {

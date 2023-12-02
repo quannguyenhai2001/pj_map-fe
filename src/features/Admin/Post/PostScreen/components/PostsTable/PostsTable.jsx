@@ -19,13 +19,12 @@ import {
     TableContainer,
     CardMedia,
 } from "@mui/material";
-import { Link } from "react-router-dom";
 
 import AppTooltip from "components/AppTooltip/AppTooltip";
 
-import { useStyles } from "../../UsersScreen.styles";
+import { useStyles } from "../../PostScreen.styles";
 
-const ProductsTable = ({
+const PostsTable = ({
     users,
     setUsers,
     setUserDeleteID,
@@ -37,24 +36,16 @@ const ProductsTable = ({
     const tableHeadContents = [
         {
             id: "thumbnail_url",
-            label: "Ảnh",
+            label: "Tiêu đề",
             minWidth: 100,
         },
         {
             id: "email",
-            label: "Email",
+            label: "Nội dung chính",
             minWidth: 120,
         },
     ];
-    const isDisabledIcon = (users) => {
-        const newProducts = users.filter(product => {
-            return product.isSelected
-        });
-        if (newProducts.length > 0) {
-            return true
-        }
-        return false
-    }
+
     return (
         <Box>
             {!users.length ? (
@@ -101,18 +92,7 @@ const ProductsTable = ({
 
                                 )}
 
-                                <TableCell
-                                    colSpan={4}
-                                    align="center"
-                                    sx={{
-                                        minWidth: 100,
-                                        bgcolor: theme.palette.grey[400],
-                                        fontWeight: "bold",
-                                        borderTop: "none",
-                                    }}
-                                >
-                                    Thao tác
-                                </TableCell>
+
                             </TableRow>
                         </TableHead>
 
@@ -129,47 +109,15 @@ const ProductsTable = ({
 
 
                                     <TableCell align="center" size="small">
-                                        {product.avatar ? (<CardMedia className={classes.rootCardMedia}
-                                            component="img"
-                                            height="70"
-                                            image={product.avatar}
-                                            alt="green iguana"
-                                        />) : (
-                                            <CardMedia className={classes.rootCardMedia}
-                                                component="img"
-                                                height="70"
-                                                image='https://res.cloudinary.com/cosmeticv1/image/upload/v1653237466/cosmetic/users/Product17_2.webp'
-                                                alt="green iguana"
-                                            />
-                                        )}
+                                        {product.title}
                                     </TableCell>
 
                                     <TableCell align="center" size="small">
-                                        {product.email}
+                                        {product.paragraph}
                                     </TableCell>
 
 
-                                    <TableCell
-                                        align="center"
-                                        size="small"
-                                        sx={{ cursor: "pointer" }}
-                                    >
-                                        <Box display="flex" justifyContent="center">
 
-                                            <AppTooltip title="Xóa">
-                                                <IconButton
-                                                    disabled={isDisabledIcon(users)}
-                                                    onClick={() => {
-                                                        setOpenDeleteProductModal(true)
-                                                        setUserDeleteID(product.id)
-                                                    }}
-
-                                                >
-                                                    <Delete />
-                                                </IconButton>
-                                            </AppTooltip>
-                                        </Box>
-                                    </TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>
@@ -182,4 +130,4 @@ const ProductsTable = ({
     );
 };
 
-export default ProductsTable;
+export default PostsTable;

@@ -42,7 +42,7 @@ const SignInScreen = () => {
             const res = await dispatch(fetchAsyncSignIn(value)).unwrap()
             Toast("success", "Đăng nhập thành công!")
             if (res.role === "admin") {
-                navigate("/dashboard/users")
+                navigate("/dashboard")
             }
             else {
                 navigate("/")

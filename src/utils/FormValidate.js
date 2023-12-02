@@ -106,13 +106,13 @@ export const createManuAddressValidateSchema = () =>
         .string()
         .required("Địa chỉ nhà cung cấp không được để trống");
 export const createManuSchema = yup.object().shape({
-    manufacturer_name: createManuNameValidateSchema({}),
-    manufacturer_address: createManuAddressValidateSchema({}),
+    email: createManuNameValidateSchema({}),
+    password: createManuAddressValidateSchema({}),
 });
 
 export const updateManuSchema = yup.object().shape({
-    manufacturer_name: createManuNameValidateSchema({}),
-    manufacturer_address: createManuAddressValidateSchema({}),
+    email: createManuNameValidateSchema({}),
+    password: createManuAddressValidateSchema({}),
 });
 
 export const initLoginFormValue = {
@@ -142,8 +142,14 @@ export const initUpdateManufacturers = {
     manufacturer_address: ""
 }
 export const initCreateManufacturers = {
-    manufacturer_name: "",
-    manufacturer_address: ""
+    email: "",
+    username: "",
+    password: ""
+}
+export const initCreatePost = {
+    title: "",
+    paragraph: "",
+    content: "",
 }
 export const initCreateProducts = {
     product_name: "",

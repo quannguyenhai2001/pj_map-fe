@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {
 
-    Delete,
+    AddCircleOutline,
 
 } from "@mui/icons-material";
 import { Box, Button, Typography } from "@mui/material";
@@ -15,7 +15,7 @@ import AppPaginate from "components/AppPaginate/AppPaginate";
 
 import ProductsTable from "./components/ProductsTable/ProductsTable";
 import { Toast } from "utils/Toast";
-import DeleteProductModal from "./components/DeleteUserModal/DeleteUserModal";
+
 import { fetchAsyncGetAllUsers } from "redux/slices/UserSlice";
 
 
@@ -64,22 +64,9 @@ const UsersScreen = () => {
     }, [location.search, isActionButton, dispatch]);
 
 
-    const onPageChange = (_event, page) => {
-        navigate({
-            pathname: "/dashboard/sizes",
-            search: qs.stringify({ ...qsParsed, page }),
-        });
-    };
 
-    const isDisabledButton = (users) => {
-        const newProducts = users.filter(product => {
-            return product.isSelected
-        });
-        if (newProducts.length > 0) {
-            return false
-        }
-        return true
-    }
+
+
 
     return (
         <Box >
@@ -90,7 +77,43 @@ const UsersScreen = () => {
                     </Typography>
                 </Stack>
                 <Box>
+                    <Stack
+                        direction="row"
+                        sx={{
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                        }}
+                    >
+                        <AppPaginate
+                            count={pageInfo.total_page}
+                            page={pageInfo.page}
+                            sx={{ marginTop: "auto" }}
 
+                        />
+
+                        <Box
+                            sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "10px",
+                            }}
+                        >
+                            <Button
+                                startIcon={<AddCircleOutline />}
+                                sx={{
+                                    width: "120px",
+                                }}
+                                onClick={() =>
+                                    navigate("/dashboard/create-user")
+                                }
+                                size="small"
+                                variant="contained"
+                                color="signature"
+                            >
+                                Tạo mới
+                            </Button>
+                        </Box>
+                    </Stack>
                 </Box>
                 <Box spacing={20} height="100%">
                     <ProductsTable
@@ -103,14 +126,7 @@ const UsersScreen = () => {
                     />
                 </Box>
             </Stack >
-            <DeleteProductModal
-                users={users}
-                setUserDeleteID={setUserDeleteID}
-                userDeleteID={userDeleteID}
-                openDeleteProductModal={openDeleteProductModal}
-                setOpenDeleteProductModal={setOpenDeleteProductModal}
-                setIsActionButton={setIsActionButton}
-            />
+
         </Box >
     );
 };
