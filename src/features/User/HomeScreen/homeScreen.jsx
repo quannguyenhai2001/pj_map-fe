@@ -1,15 +1,16 @@
-import Header from "components/Header/Header"
 import React from "react"
-import Container from '@mui/material/Container';
 import { Box } from "@mui/material";
+import { useStyle } from "./HomeScreen.styles";
+import Menu from "components/Header/Header";
+import Content from "components/Content/content";
 
 const HomeScreen = () => {
+    const style = useStyle();
     return(
-    <Box sx={{backgroundColor: "red"}}>
-        <Container maxWidth="lg">
-            <Header param={"CHÀO MỪNG BẠN ĐẾN VỚI HÀNH TRÌNH KHÁM PHÁ DI SẢN VIỆT NAM"} />
-        </Container>
-    </Box>       
+    <Box sx={{display: "flex", flexDirection:"column"}}>
+            <Menu />
+            <Content />
+    </Box>    
     )
 }
 export default HomeScreen

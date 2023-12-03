@@ -2,6 +2,7 @@ import BlankLayout from "layouts/BlankLayout/BlankLayout";
 import AdminLayout from "layouts/AdminLayout/AdminLayout";
 import UsersScreen from "features/Admin/User/UsersScreen/UsersScreen";
 import SignInScreen from "features/Auth/SignInScreen/SignInScreen";
+import HomeScreen from "features/User/HomeScreen/homeScreen";
 
 export const RouteConfigs = [
     {
@@ -16,5 +17,10 @@ export const RouteConfigs = [
         isPrivate: false,
         layout: AdminLayout,
     },
-
+    {
+        path: "/",
+        element: HomeScreen,
+        isPrivate: false,
+        layout: BlankLayout,
+    },
 ]
