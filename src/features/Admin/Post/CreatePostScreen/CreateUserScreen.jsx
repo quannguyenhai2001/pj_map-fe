@@ -45,10 +45,11 @@ const CreatePostScreen = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate()
     const [productInformation, setProductInformation] = React.useState("")
+    const [image, setImage] = React.useState("")
     const submitHandle = async (values) => {
         console.log(values)
         try {
-            const payload = { ...values, content: productInformation }
+            const payload = { ...values, content: productInformation, image: image }
             await dispatch(fetchAsyncCreatePost(payload))
             Toast('success', "Tạo bài viết thành công!");
             navigate("/dashboard/posts")
@@ -57,7 +58,19 @@ const CreatePostScreen = () => {
             Toast('warning', "Lỗi!");
         }
     }
-    console.log(productInformation)
+
+    async function getBase64(files, type) {
+        let reader = new FileReader();
+        reader.readAsDataURL(files);
+        reader.onload = function () {
+            setImage(reader.result);
+        };
+        reader.onerror = function (error) {
+            console.log('Error: ', error);
+        }
+
+    }
+
     return (
         <Container maxWidth="md">
             <Typography variant="h2" fontWeight="bold" fontSize="30px" mb={30}>
@@ -137,6 +150,23 @@ const CreatePostScreen = () => {
                                         }}
                                         fullWidth
                                     />
+                                </Grid>
+                            </Grid>
+                            <Grid
+                                container
+                                sx={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                }}
+                            >
+                                <Grid item xs={4} sm={4} md={4} lg={2} xl={4}>
+                                    Ảnh
+                                </Grid>
+                                <Grid item xs={4} sm={4} md={4} lg={8} xl={4}>
+                                    <input name="thumbnail_url" accept="image/*" type="file"
+                                        onChange={(event) => {
+                                            getBase64(event.currentTarget.files[0])
+                                        }} />
                                 </Grid>
                             </Grid>
                             <Grid
