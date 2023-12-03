@@ -36,8 +36,8 @@ const ProductsTable = ({
 
     const tableHeadContents = [
         {
-            id: "thumbnail_url",
-            label: "Ảnh",
+            id: "username",
+            label: "Tên hiển thị",
             minWidth: 100,
         },
         {
@@ -46,15 +46,7 @@ const ProductsTable = ({
             minWidth: 120,
         },
     ];
-    const isDisabledIcon = (users) => {
-        const newProducts = users.filter(product => {
-            return product.isSelected
-        });
-        if (newProducts.length > 0) {
-            return true
-        }
-        return false
-    }
+
     return (
         <Box>
             {!users.length ? (
@@ -101,18 +93,7 @@ const ProductsTable = ({
 
                                 )}
 
-                                <TableCell
-                                    colSpan={4}
-                                    align="center"
-                                    sx={{
-                                        minWidth: 100,
-                                        bgcolor: theme.palette.grey[400],
-                                        fontWeight: "bold",
-                                        borderTop: "none",
-                                    }}
-                                >
-                                    Thao tác
-                                </TableCell>
+
                             </TableRow>
                         </TableHead>
 
@@ -129,19 +110,7 @@ const ProductsTable = ({
 
 
                                     <TableCell align="center" size="small">
-                                        {product.avatar ? (<CardMedia className={classes.rootCardMedia}
-                                            component="img"
-                                            height="70"
-                                            image={product.avatar}
-                                            alt="green iguana"
-                                        />) : (
-                                            <CardMedia className={classes.rootCardMedia}
-                                                component="img"
-                                                height="70"
-                                                image='https://res.cloudinary.com/cosmeticv1/image/upload/v1653237466/cosmetic/users/Product17_2.webp'
-                                                alt="green iguana"
-                                            />
-                                        )}
+                                        {product.username}
                                     </TableCell>
 
                                     <TableCell align="center" size="small">
@@ -149,27 +118,6 @@ const ProductsTable = ({
                                     </TableCell>
 
 
-                                    <TableCell
-                                        align="center"
-                                        size="small"
-                                        sx={{ cursor: "pointer" }}
-                                    >
-                                        <Box display="flex" justifyContent="center">
-
-                                            <AppTooltip title="Xóa">
-                                                <IconButton
-                                                    disabled={isDisabledIcon(users)}
-                                                    onClick={() => {
-                                                        setOpenDeleteProductModal(true)
-                                                        setUserDeleteID(product.id)
-                                                    }}
-
-                                                >
-                                                    <Delete />
-                                                </IconButton>
-                                            </AppTooltip>
-                                        </Box>
-                                    </TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>

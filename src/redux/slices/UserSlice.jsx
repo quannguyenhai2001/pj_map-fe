@@ -41,18 +41,20 @@ export const fetchAsyncGetAllUsers = createAsyncThunk(
         }
     }
 );
-export const fetchAsyncDeleteUsers = createAsyncThunk(
-    "auth/fetchAsyncDeleteUsers",
+
+export const fetchAsyncCreateUser = createAsyncThunk(
+    "auth/fetchAsyncCreateUser",
     async (data, { rejectWithValue }) => {
         try {
-            instanceApi.defaults.headers["Content-Type"] = "application/json; charset=UTF-8"
-            const response = await CallApiByBody("auth/delete-user.php", "delete", data)
+            const response = await CallApiByBody("user/register", "post", data)
             return response.data
         } catch (error) {
             return rejectWithValue(error.response.data)
         }
     }
 );
+
+
 
 const userSlice = createSlice({
     name: 'user',
