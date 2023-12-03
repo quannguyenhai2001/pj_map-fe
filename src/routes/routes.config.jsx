@@ -26,6 +26,7 @@ export const RouteConfigs = [
         isPrivate: false,
         layout: BlankLayout,
     },
+    {
         path: "/dashboard/create-user",
         element: CreateUserScreen,
         isPrivate: false,
