@@ -3,7 +3,7 @@ import React from 'react';
 
 const BlankLayout = ({ children }) => {
     return (
-        <Box>
+        <Box sx={{height: "100vh", backgroundColor: "#f8eaed",  zIndex: "-1"}}>
             {children}
         </Box>
     );
