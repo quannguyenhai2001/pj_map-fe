@@ -10,7 +10,6 @@ export const useContent = makeStyles(theme => ({
     },
     content: {
         width: "69%",
-        backgroundColor: "#fff"
     },
     titleContent:{
         display: "flex",
@@ -39,8 +38,113 @@ export const useContent = makeStyles(theme => ({
         display: "flex",
         flexDirection: "column",
         padding: "20px",
+        backgroundColor: "#fff",
+        boxShadow: "0 2px 7px 0 rgba(0,0,0,0.1)"
+
     },
     sidebar: {
         width: "25%",
+    },
+    showList: {
+        display: "flex",
+        flexDirection: "row",
+        position: "relative",
+        width: "100%",
+        padding: "0 0 20px",
+        margin: "0 0 20px",
+        borderBottom: "1px solid rgba(155,155,155,0.1)",
+    },
+    img: {
+        width: "235px",
+        height: "152px",
+        margin: "0 18px 0 0",
+    },
+    entryContent: {
+        display: "flex",
+        flexDirection: "column",
+        flex: 1,
+        margin: 0,
+    },
+    linkPara: {
+        textDecoration: "none",
+        color: "black",
+        fontSize: "22px",
+        fontWeight: "700",
+        "&:hover" : {
+            color: "#ca0000", 
+            cursor: "pointer"
+        }
+    },
+    thumb: {
+        position: "relative",
+        width: "100%",
+        height: "170px",
+        display: "flex",
+        flexDirection: "column",
+        margin: 0,
+    },
+    link1: {
+        width: "100%",
+        height: "100%",
+        zIndex: 1,
+        margin: 0,
+        "&::before" : {
+            content: '',
+            position: "absolute",
+            left: 0,
+            right: 0,
+            bottom: 0,
+            height: "70%",
+            backgroundImage: "linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,0.7))",
+            backfaceVisibility: "hidden",
+            zIndex: 2,
+            opacity: 1,
+            margin: 0,
+            transition: "opacity .25s ease",
+        }
+    },
+    span: {
+        display: "block",
+        position: "relative",
+        width: "100%",
+        height: "100%",
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
+        backgroundRepeat: "no-repeat",
+        zIndex: 1,
+        opacity: 0,
+        transition: "opacity .35s ease,filter 0s ease",
+    },
+    footContent: {
+        position: "absolute",
+        left: 0,
+        bottom: 0,
+        width: "100%",
+        background: "linear-gradient(to bottom,rgba(0,0,0,0) 10%,rgba(0,0,0,0.5))",
+        overflow: "hidden",
+        zIndex: 10,
+        display: "flex",
+        flexDirection: "column",
+        padding: "15px",
+    },
+    paraFoot: {
+        display: "flex",
+        width: "fit-content",
+        height: "18px",
+        backgroundColor: "#ca0000aa",
+        fontSize: "11px",
+        color: "#fff",
+        fontWeight: "400",
+        alignItems: "center",
+        padding: "0 5px",
+        margin: "0 0 10px",
+        borderRadius: "2px",
+    },
+    linkFoot: {
+        display: "block",
+        color: "#000000",
+        fontWeight: "700",
+        lineHeight: "1.3em",
+        fontSize: "20px",
     }
 }))
