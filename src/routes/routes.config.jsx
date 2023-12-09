@@ -6,6 +6,11 @@ import HomeScreen from "features/User/HomeScreen/homeScreen";
 import CreateUserScreen from "features/Admin/User/CreateUserScreen/CreateUserScreen";
 import PostScreen from "features/Admin/Post/PostScreen/PostScreen";
 import CreatePostScreen from "features/Admin/Post/CreatePostScreen/CreateUserScreen";
+import CamLo from "features/User/CamLo/camlo";
+import HaNoi from "features/User/HaNoi/hanoi";
+import DefaultLayout from "layouts/DefaultLayout/DefaultLayout";
+import QTG from "features/User/QuocTuGiam/QTG";
+import HTTL from "features/User/HoangThanhTL/HTTL";
 
 export const RouteConfigs = [
     {
@@ -43,5 +48,29 @@ export const RouteConfigs = [
         element: CreatePostScreen,
         isPrivate: false,
         layout: AdminLayout,
+    },
+    {
+        path: "/user/quangtri",
+        element: CamLo,
+        isPrivate: false,
+        layout: DefaultLayout,
+    },
+    {
+        path: "/user/hanoi",
+        element: HaNoi,
+        isPrivate: false,
+        layout: DefaultLayout,
+    },
+    {
+        path: "/user/quoctugiam",
+        element: QTG,
+        isPrivate: false,
+        layout: DefaultLayout,
+    },
+    {
+        path: "/user/hoangthanh",
+        element: HTTL,
+        isPrivate: false,
+        layout: DefaultLayout,
     },
 ]

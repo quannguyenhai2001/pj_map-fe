@@ -29,7 +29,7 @@ const showList = (list) => {
 const Content = () => {
     const [list, setList] = useState([])
     const dispatch = useDispatch();
-    const content = useContent()
+    const contents = useContent()
 
     useEffect(() => {
         (async () => {
@@ -53,45 +53,45 @@ const Content = () => {
     return (
         <Box>
             <Container maxWidth="lg">
-                <Box className={content.container}>
-                <Box className={content.content}>
-                    <Box className={content.titleContent}>
+                <Box className={contents.container}>
+                <Box className={contents.content}>
+                    <Box className={contents.titleContent}>
                         <Typography sx={{color:"#fff", fontSize:"16px", fontWeight: "700"}}>Tài Nguyên Học Tập</Typography>
-                        <Link className={content.link} href="#">Xem tất cả</Link>
+                        <Link className={contents.link} href="#">Xem tất cả</Link>
                     </Box>
-                    <Box className={content.listContent}>
+                    <Box className={contents.listContent}>
                         {list.map(item => (
-                            <Box className={content.showList}>
-                                <Box className={content.img}>
+                            <Box className={contents.showList}>
+                                <Box className={contents.img}>
                                     <img src="123" alt="anh" />
                                 </Box>
-                                <Box className={content.entryContent}>
+                                <Box className={contents.entryContent}>
                                     <Typography sx={{display: "block",fontSize: "13px",color: "#ca0000",fontWeight: "500",textTransform: "uppercase",margin: "0 0 5px"}}>
                                         {item.title}
                                     </Typography>
                                     <Typography>
-                                        <Link className={content.linkPara} href="#">paragraph</Link>
+                                        <Link className={contents.linkPara} href="#">{item.paragraph}</Link>
                                     </Typography>
-                                    <Typography sx={{fontSize: "13px", margin: "8px 0 0"}}>content</Typography>
+                                    <Typography sx={{fontSize: "13px", margin: "8px 0 0", whiteSpace: "pre-wrap", width: "400px",overflow: "hidden",textOverflow: "ellipsis"}} dangerouslySetInnerHTML={{__html: item.content}}/>
                                 </Box>
                             </Box>  
                         ))}
                     </Box>
                     <Box sx={{position: "relative",float: "left",width: "100%",padding: "0 0 8px 20px",marginTop: "-30px", textAlign:"center"}}>KHÔNG TÌM THẤY KẾT QUẢ NÀO</Box>
                     <Box sx={{fontFamily: "'Roboto Condensed', Arial, sans-serif",fontWeight: "700", fontSize: "15px"}}>Những bài viết liên quan</Box>
-                    <Box className={content.thumb}>
-                        <Link className={content.link1} href="#">
-                            <span class={content.span} data-image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhaigKfU1iSHttPe3LTvl3TUeU97foBd-Aao8hZpdQhJE0Q6kV0-HuKVMxpOqhxv8zBingNO2dsPmOhqe-CTycfUtEXHAVzBBrB6ur52px2XarjzdkPzPIrZ9HjmH46Bx0Buw7R2WmQVtFmgjNIYEKo7QgOmaC6ArWUw0xcZJAfcLlgginaZDNGPez2hFvA/w72-h72-p-k-no-nu/IMG20221126153543.jpg"></span>
+                    <Box className={contents.thumb}>
+                        <Link className={contents.link1} href="#">
+                            <span class={contents.span} data-image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhaigKfU1iSHttPe3LTvl3TUeU97foBd-Aao8hZpdQhJE0Q6kV0-HuKVMxpOqhxv8zBingNO2dsPmOhqe-CTycfUtEXHAVzBBrB6ur52px2XarjzdkPzPIrZ9HjmH46Bx0Buw7R2WmQVtFmgjNIYEKo7QgOmaC6ArWUw0xcZJAfcLlgginaZDNGPez2hFvA/w72-h72-p-k-no-nu/IMG20221126153543.jpg"></span>
                         </Link>
-                        <Box className={content.footContent}>
-                            <Typography className={content.paraFoot}>Tài liệu di tích lịch sử</Typography>
-                            <Typography className={content.linkFoot}>
+                        <Box className={contents.footContent}>
+                            <Typography className={contents.paraFoot}>Tài liệu di tích lịch sử</Typography>
+                            <Typography className={contents.linkFoot}>
                                 <Link sx={{color: "#fff",textShadow: "0 1px 2px rgba(0,0,0,0.1)", textDecoration: "none"}} href="#">TƯ LIỆU VỀ HOÀNG THÀNH THĂNG LONG </Link>
                             </Typography>
                         </Box>
                     </Box>
                 </Box>
-                <Box className={content.sidebar}>
+                <Box className={contents.sidebar}>
                         <Box>
                             <BoxContent title="VIDEO" />
                         </Box>
