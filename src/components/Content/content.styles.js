@@ -7,6 +7,7 @@ export const useContent = makeStyles(theme => ({
         marginTop: "25px",
         zIndex: "-1",
         justifyContent: "space-between",
+        padding: "25px 0"
     },
     content: {
         width: "69%",
